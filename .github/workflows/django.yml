@@ -36,4 +36,9 @@ jobs:
           poetry run flake8 .
       - name: Test with pytest
         run: |
-          poetry run pytest
+          poetry run pytest touristspots --cov=touristspots
+      - name: Posting Coverage
+        env:
+          CODECOV_TOKEN: "122744c8-2a30-4eec-85ff-2780882aff05"
+        run: |
+          poetry run codecov
