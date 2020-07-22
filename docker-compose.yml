@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  database:
+    container_name: touristspots_database
+    image: postgres
+    restart: always
+    volumes:
+      - ./.pgdata:/var/lib/postgres/data
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_USER=snowman
+      - POSTGRES_PASSWORD=snowman
+    ports:
+      - 5435:5432
