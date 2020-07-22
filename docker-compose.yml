@@ -12,4 +12,4 @@ services:
       - POSTGRES_USER=snowman
       - POSTGRES_PASSWORD=snowman
     ports:
-      - 5435:5432
+      - 5433:5432
