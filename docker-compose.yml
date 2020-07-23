@@ -3,7 +3,7 @@ version: "3.3"
 services:
   database:
     container_name: touristspots_database
-    image: postgres
+    image: postgis/postgis
     restart: always
     volumes:
       - ./.pgdata:/var/lib/postgres/data

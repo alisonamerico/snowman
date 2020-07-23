@@ -43,11 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'touristspots.base',
     'touristspots.api',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+
 ]
 
 MIDDLEWARE = [

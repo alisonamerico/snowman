@@ -3,4 +3,4 @@ SECRET_KEY=define_your_secret_key
 ALLOWED_HOSTS=localhost, 127.0.0.1
 
 # Database Docker
-DATABASE_URL=postgres://postgres:postgres@localhost/postgres
+DATABASE_URL=postgis://postgres:postgres@localhost/postgres
