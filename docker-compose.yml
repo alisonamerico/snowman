@@ -1,15 +1,29 @@
-version: "3.3"
+version: "3.8"
 
 services:
   database:
     container_name: touristspots_database
-    image: postgres
+    image: postgis/postgis
     restart: always
     volumes:
-      - ./.pgdata:/var/lib/postgres/data
+      - postgres_data:/var/lib/postgres/data/
     environment:
       - LC_ALL=C.UTF-8
       - POSTGRES_USER=snowman
       - POSTGRES_PASSWORD=snowman
+      - POSTGRES_DB=touristspots
     ports:
       - 5433:5432
+
+  web:
+    build: .
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+
+volumes:
+  postgres_data:
