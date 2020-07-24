@@ -22,6 +22,15 @@ class TouristSpot(models.Model):
     created = models.DateTimeField('Created in', auto_now_add=True)
     modified = models.DateTimeField('Modified in', auto_now=True)
 
+    class Meta:
+        verbose_name = 'TouristSpot'
+        verbose_name_plural = 'TouristSpots'
+        ordering = ['-created']
+
+    def __str__(self):
+        """A string representation of the model."""
+        return self.name
+
 
 class Favorite(models.Model):
     """
@@ -31,3 +40,12 @@ class Favorite(models.Model):
     """
     tourist = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     tourist_spot = models.ForeignKey('TouristSpot', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Favorite'
+        verbose_name_plural = 'Favorite'
+        ordering = ['-tourist_spot']
+
+    def __str__(self):
+        """A string representation of the model."""
+        return str(self.tourist_spot)
