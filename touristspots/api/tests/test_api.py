@@ -28,5 +28,5 @@
 
 
 # def test_get_environments(api_client):
-#     resp = api_client.get(reverse('api:ev_list'))
+#     resp = api_client.get('/api/v1/')
 #     assert resp.status_code == 200

@@ -66,15 +66,14 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
-    'http://127.0.0.1:8080',
-    'http://127.0.0.1:8000',
+    'http://0.0.0.0:8080',
     'http://0.0.0.0:8000',
 ]
 
 # CONFIGURATION REST_FRAMEWORK
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
     'TEST_REQUEST_RENDERER_CLASSES': [
         'rest_framework.renderers.MultiPartRenderer',
