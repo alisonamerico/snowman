@@ -25,8 +25,7 @@ ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 ENV POETRY_NO_INTERACTION=1
 
 # Install environment dependencies
-RUN apt-get update && apt-get -y install apt-utils sudo 
-RUN sudo apt-get -y install binutils libgdal-dev gdal-bin libproj-dev 
+RUN apt-get update && apt-get -y install apt-utils binutils libgdal-dev gdal-bin libproj-dev gcc
 
 # create folder
 RUN mkdir /code
