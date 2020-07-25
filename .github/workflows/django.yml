@@ -23,6 +23,8 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
+      - name: Install environment dependencies
+        run: sudo apt-get update && apt-get -y install apt-utils binutils libgdal-dev gdal-bin libproj-dev gcc
       - name: Copying configurations
         run: |
           cp contrib/env-sample .env
