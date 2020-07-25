@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from touristspots.api.models import TouristSpot
+from touristspots.api.models import TouristSpot, Favorite
 
 
 """
@@ -20,4 +20,16 @@ class TouristSpotSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TouristSpot
+        fields = '__all__'
+
+
+class FavoriteSerializer(serializers.ModelSerializer):
+
+    """
+    FavoriteViewSet - Will translate objects implemented in Model Favorite
+    for viewing them in the DRF form.
+    """
+
+    class Meta:
+        model = Favorite
         fields = '__all__'
