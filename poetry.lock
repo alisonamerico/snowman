@@ -152,6 +152,17 @@ django = ">=1.11"
 
 [[package]]
 category = "main"
+description = "Geographic add-ons for Django Rest Framework"
+name = "djangorestframework-gis"
+optional = false
+python-versions = "*"
+version = "0.15"
+
+[package.dependencies]
+djangorestframework = "*"
+
+[[package]]
+category = "main"
 description = "JSON Web Token based authentication for Django REST framework"
 name = "djangorestframework-jwt"
 optional = false
@@ -443,7 +454,8 @@ python-versions = "*"
 version = "0.2.5"
 
 [metadata]
-content-hash = "edd98fad83ac303e19bd029cdfa11e99b778b7755286ed78bff450fb9d9fe533"
+content-hash = "0de00980d6fa0759c9bad61e2773cfb3175db6adb9ab38a81a6c0ed64262b602"
+lock-version = "1.0"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -533,6 +545,9 @@ django-cors-headers = [
 djangorestframework = [
     {file = "djangorestframework-3.11.0-py3-none-any.whl", hash = "sha256:05809fc66e1c997fd9a32ea5730d9f4ba28b109b9da71fccfa5ff241201fd0a4"},
     {file = "djangorestframework-3.11.0.tar.gz", hash = "sha256:e782087823c47a26826ee5b6fa0c542968219263fb3976ec3c31edab23a4001f"},
+]
+djangorestframework-gis = [
+    {file = "djangorestframework_gis-0.15-py2.py3-none-any.whl", hash = "sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594"},
 ]
 djangorestframework-jwt = [
     {file = "djangorestframework-jwt-1.11.0.tar.gz", hash = "sha256:5efe33032f3a4518a300dc51a51c92145ad95fb6f4b272e5aa24701db67936a7"},

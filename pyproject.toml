@@ -16,6 +16,7 @@ djangorestframework = "^3.11.0"
 djangorestframework-jwt = "^1.11.0"
 django-cors-headers = "^3.4.0"
 Pillow = "^7.2.0"
+djangorestframework-gis = "^0.15"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
