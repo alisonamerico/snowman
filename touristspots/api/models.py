@@ -14,10 +14,17 @@ class TouristSpot(models.Model):
     """
     This class contains the representation of the fields in the TouristSpot table.
     """
+    CATEGORY_CHOICES = [
+        ('PARK', 'Park'),
+        ('MUSEUM', 'Museum'),
+        ('THEATER', 'Theater'),
+        ('MONUMENT', 'Monument'),
+    ]
+
     picture = models.ImageField(upload_to='pic_folder/', default='pic_folder/none/no-img.jpg')
     name = models.CharField(max_length=100)
     geographical_location = models.PointField(geography=True, default=Point(0.0, 0.0))
-    category = models.CharField(max_length=50)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
 
     created = models.DateTimeField('Created in', auto_now_add=True)
     modified = models.DateTimeField('Modified in', auto_now=True)
