@@ -20,6 +20,7 @@ class TouristSpotViewSet(viewsets.ModelViewSet):
     queryset = TouristSpot.objects.all()
     serializer_class = TouristSpotSerializer
     permission_classes = (IsAuthenticated,)
+    filterset_fields = ['name', 'category']
 
     lat = 52.5
     lng = 1.0
