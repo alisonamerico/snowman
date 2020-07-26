@@ -15,6 +15,8 @@ django-cors-headers==3.4.0 \
 djangorestframework==3.11.0 \
     --hash=sha256:05809fc66e1c997fd9a32ea5730d9f4ba28b109b9da71fccfa5ff241201fd0a4 \
     --hash=sha256:e782087823c47a26826ee5b6fa0c542968219263fb3976ec3c31edab23a4001f
+djangorestframework-gis==0.15 \
+    --hash=sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594
 djangorestframework-jwt==1.11.0 \
     --hash=sha256:5efe33032f3a4518a300dc51a51c92145ad95fb6f4b272e5aa24701db67936a7 \
     --hash=sha256:ab15dfbbe535eede8e2e53adaf52ef0cf018ee27dbfad10cbc4cbec2ab63d38c

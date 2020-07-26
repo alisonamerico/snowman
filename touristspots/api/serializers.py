@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from touristspots.api.models import TouristSpot, Favorite
 
 
@@ -17,7 +16,6 @@ class TouristSpotSerializer(serializers.ModelSerializer):
     TouristSpotViewSet - Will translate objects implemented in Model TouristSpot
     for viewing them in the DRF form.
     """
-
     class Meta:
         model = TouristSpot
         fields = '__all__'
