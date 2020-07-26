@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import filters
 
 from touristspots.api.models import Favorite, TouristSpot
 from touristspots.api.serializers import TouristSpotSerializer, FavoriteSerializer
@@ -20,7 +21,8 @@ class TouristSpotViewSet(viewsets.ModelViewSet):
     queryset = TouristSpot.objects.all()
     serializer_class = TouristSpotSerializer
     permission_classes = (IsAuthenticated,)
-    filterset_fields = ['name', 'category']
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
 
     lat = 52.5
     lng = 1.0
