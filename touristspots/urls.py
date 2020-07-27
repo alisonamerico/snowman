@@ -18,14 +18,12 @@ from django.urls import include, path
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 
-from touristspots.base.views import home
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', include('touristspots.base.urls')),
     # JWT auth
     path('api/v1/auth/api-token-auth/', obtain_jwt_token, name='api-token-auth'),
     path('api/v1/auth/api-token-refresh/', refresh_jwt_token, name='api-token-refresh'),
     # The rest of the endpoints
-    path('api/v1/', include('touristspots.api.urls')),
+    path('api/v1/', include('touristspots.api.urls'), name='api-root'),
 ]
