@@ -65,6 +65,8 @@ https://docs.docker.com/docker-for-mac/install/
 For Windows:
 https://docs.docker.com/docker-for-windows/install/
 
+![home](readme-images/0_home.png)
+
 ## How to execute:
 
 ```console
