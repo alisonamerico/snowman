@@ -1,4 +1,4 @@
 DEBUG=False
 SECRET_KEY=define_your_secret_key
 ALLOWED_HOSTS=localhost, 127.0.0.1, 0.0.0.0
-DATABASE_URL=postgis://postgres:postgres@database:5432/postgres
+DATABASE_URL=postgis://snowman:snowman@database:5432/touristspots
