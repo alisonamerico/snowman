@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import filters
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from touristspots.api.models import Favorite, TouristSpot
 from touristspots.api.serializers import TouristSpotSerializer, FavoriteSerializer
@@ -21,6 +22,7 @@ class TouristSpotViewSet(viewsets.ModelViewSet):
     queryset = TouristSpot.objects.all()
     serializer_class = TouristSpotSerializer
     permission_classes = (IsAuthenticated,)
+    authentication_classes = (JSONWebTokenAuthentication,)
     filter_backends = [filters.SearchFilter]
     search_fields = ['name']
 
