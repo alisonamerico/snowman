@@ -50,7 +50,7 @@ class Favorite(models.Model):
 
     class Meta:
         verbose_name = 'Favorite'
-        verbose_name_plural = 'Favorite'
+        verbose_name_plural = 'Favorites'
         ordering = ['-tourist_spot']
 
     def __str__(self):
