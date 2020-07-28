@@ -20,9 +20,6 @@ djangorestframework==3.11.0 \
     --hash=sha256:e782087823c47a26826ee5b6fa0c542968219263fb3976ec3c31edab23a4001f
 djangorestframework-gis==0.15 \
     --hash=sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594
-djangorestframework-jwt==1.11.0 \
-    --hash=sha256:5efe33032f3a4518a300dc51a51c92145ad95fb6f4b272e5aa24701db67936a7 \
-    --hash=sha256:ab15dfbbe535eede8e2e53adaf52ef0cf018ee27dbfad10cbc4cbec2ab63d38c
 gunicorn==20.0.4 \
     --hash=sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c \
     --hash=sha256:1904bb2b8a43658807108d59c3f3d56c2b6121a701161de0ddf9ad140073c626
@@ -84,9 +81,6 @@ psycopg2-binary==2.8.5 \
     --hash=sha256:7036ccf715925251fac969f4da9ad37e4b7e211b1e920860148a10c0de963522 \
     --hash=sha256:8f74e631b67482d504d7e9cf364071fc5d54c28e79a093ff402d5f8f81e23bfa \
     --hash=sha256:fa466306fcf6b39b8a61d003123d442b23707d635a5cb05ac4e1b62cc79105cd
-pyjwt==1.7.1 \
-    --hash=sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e \
-    --hash=sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96
 python-decouple==3.3 \
     --hash=sha256:55c546b85b0c47a15a47a4312d451a437f7344a9be3e001660bccd93b637de95
 pytz==2020.1 \

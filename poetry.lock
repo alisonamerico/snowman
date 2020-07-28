@@ -173,17 +173,6 @@ version = "0.15"
 djangorestframework = "*"
 
 [[package]]
-category = "main"
-description = "JSON Web Token based authentication for Django REST framework"
-name = "djangorestframework-jwt"
-optional = false
-python-versions = "*"
-version = "1.11.0"
-
-[package.dependencies]
-PyJWT = ">=1.5.2,<2.0.0"
-
-[[package]]
 category = "dev"
 description = "the modular source code checker: pep8 pyflakes and co"
 name = "flake8"
@@ -299,19 +288,6 @@ name = "pyflakes"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "2.2.0"
-
-[[package]]
-category = "main"
-description = "JSON Web Token implementation in Python"
-name = "pyjwt"
-optional = false
-python-versions = "*"
-version = "1.7.1"
-
-[package.extras]
-crypto = ["cryptography (>=1.4)"]
-flake8 = ["flake8", "flake8-import-order", "pep8-naming"]
-test = ["pytest (>=4.0.1,<5.0.0)", "pytest-cov (>=2.6.0,<3.0.0)", "pytest-runner (>=4.2,<5.0.0)"]
 
 [[package]]
 category = "dev"
@@ -465,7 +441,7 @@ python-versions = "*"
 version = "0.2.5"
 
 [metadata]
-content-hash = "50e43cb1d1eb8cd90f1291f49974b1d711ea8840c22e1245ece130f3285ee358"
+content-hash = "cbc19c9155aee8d07654f49a70f9d42070b5e04c0dd5210f81b8ccfd5b0dcdc3"
 lock-version = "1.0"
 python-versions = "^3.8"
 
@@ -563,10 +539,6 @@ djangorestframework = [
 ]
 djangorestframework-gis = [
     {file = "djangorestframework_gis-0.15-py2.py3-none-any.whl", hash = "sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594"},
-]
-djangorestframework-jwt = [
-    {file = "djangorestframework-jwt-1.11.0.tar.gz", hash = "sha256:5efe33032f3a4518a300dc51a51c92145ad95fb6f4b272e5aa24701db67936a7"},
-    {file = "djangorestframework_jwt-1.11.0-py2.py3-none-any.whl", hash = "sha256:ab15dfbbe535eede8e2e53adaf52ef0cf018ee27dbfad10cbc4cbec2ab63d38c"},
 ]
 flake8 = [
     {file = "flake8-3.8.3-py2.py3-none-any.whl", hash = "sha256:15e351d19611c887e482fb960eae4d44845013cc142d42896e9862f775d8cf5c"},
@@ -667,10 +639,6 @@ pycodestyle = [
 pyflakes = [
     {file = "pyflakes-2.2.0-py2.py3-none-any.whl", hash = "sha256:0d94e0e05a19e57a99444b6ddcf9a6eb2e5c68d3ca1e98e90707af8152c90a92"},
     {file = "pyflakes-2.2.0.tar.gz", hash = "sha256:35b2d75ee967ea93b55750aa9edbbf72813e06a66ba54438df2cfac9e3c27fc8"},
-]
-pyjwt = [
-    {file = "PyJWT-1.7.1-py2.py3-none-any.whl", hash = "sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e"},
-    {file = "PyJWT-1.7.1.tar.gz", hash = "sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
