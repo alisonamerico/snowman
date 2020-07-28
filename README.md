@@ -100,18 +100,15 @@ Url:
 http://0.0.0.0:8000/api/v1/auth/api-token-auth/
 ```
 
-To update the token:
-
-```console
-
-http://0.0.0.0:8000/api/v1/auth/api-token-refresh/
-```
-
 Enter email and password created:
 
-```console
- - email
- - password
+Obs.: I'm using a custom user, so enter your email in the username field.
+
+```json
+{
+  "username": "admin@snowman.com",
+  "password": "labs@123"
+}
 ```
 
 Method HTTP:
@@ -133,7 +130,7 @@ Key:
 Authorization
 
 Value:
-JWT + key genered
+Token + key genered
 ```
 
 To access list of available urls:
@@ -156,7 +153,7 @@ http://0.0.0.0:8000/api/v1/favorites/
 Run the tests:
 
 ```console
-docker-compose run web python manage.py pytest touristspots --cov=touristspots
+docker-compose run web pytest touristspots --cov=touristspots
 ```
 
 Screenshots admin:
