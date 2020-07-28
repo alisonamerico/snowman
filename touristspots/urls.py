@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework.authtoken.views import obtain_auth_token
 
+from touristspots.api.views import FacebookLogin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,9 @@ urlpatterns = [
     path('api/v1/auth/api-token-auth/', obtain_auth_token, name='api-token-auth'),
     # The rest of the endpoints
     path('api/v1/', include('touristspots.api.urls'), name='api-root'),
+    # Social Authentication
+    path('accounts/', include('allauth.urls')),
+    path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('api/v1/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('api/v1/dj-rest-auth/facebook/', FacebookLogin.as_view(), name='fb_login')
 ]
