@@ -4,6 +4,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.test import APIClient
+from touristspots.api.models import TouristSpot
 
 
 @pytest.fixture
@@ -82,49 +83,60 @@ def test_create_touristpot(api_client):
     assert resp.status_code == status.HTTP_201_CREATED
 
 
-# def test_update_touristpot(api_client):
-#     resp = api_client.put(
-#         'touristspot-detail/1/',
+@pytest.fixture
+def touristpot(db):
+    api_touristspot = TouristSpot.objects.create()
+    return api_touristspot
+
+
+@pytest.fixture
+def update_touristpot(api_client, touristpot):
+    resp = api_client.put(
+        f'/api/v1/touristspots/{touristpot.id}/',
+        data={
+            "id": 1,
+            "name": "Parque Santos Dumont",
+            "geographical_location": {
+                    "type": "Point",
+                    "coordinates": [
+                        -34.9040816111268,
+                        -8.141266676521594
+                    ]
+            },
+            "category": "PARK",
+            "created": "2020-07-28T03:00:05.794300Z",
+            "modified": "2020-07-28T03:29:59.351760Z"
+        },
+        format='json',)
+    return resp
+
+
+def test_update_touristpot(update_touristpot, touristpot):
+    # assert update_touristpot.data["name"] == touristpot.name
+    assert update_touristpot.status_code == status.HTTP_200_OK
+
+
+# @pytest.fixture
+# def delete_touristpot(api_client, touristpot):
+#     resp = api_client.delete(
+#         f'/api/v1/touristspots/{touristpot.id}/',
 #         data={
-#             {
-#                 "id": 1,
-#                 "picture": "http://0.0.0.0:8000/media/pic_folder/none/no-img.jpg",
-#                 "name": "Parque Santos Dumont",
-#                 "geographical_location": {
+#             "id": 1,
+#             "name": "Parque Santos Dumont",
+#             "geographical_location": {
 #                     "type": "Point",
 #                     "coordinates": [
 #                         -34.9040816111268,
 #                         -8.141266676521594
 #                     ]
-#                 },
-#                 "category": "PARK",
-#                 "created": "2020-07-28T03:00:05.794300Z",
-#                 "modified": "2020-07-28T03:29:59.351760Z"
-#             }
-#         },
-#         format='json'
-#     )
-#     assert resp.status_code == status.HTTP_200_OK
-
-
-# def test_delete_touristpot(api_client):
-#     resp = api_client.delete(
-#         '/api/v1/touristspots/1/',
-#         data={
-#             "id": 1,
-#             "picture": "http://0.0.0.0:8000/media/pic_folder/none/no-img.jpg",
-#             "name": "Parque Santos Dumont",
-#             "geographical_location": {
-#                 "type": "Point",
-#                 "coordinates": [
-#                     -34.9040816111268,
-#                     -8.141266676521594
-#                 ]
 #             },
 #             "category": "PARK",
 #             "created": "2020-07-28T03:00:05.794300Z",
 #             "modified": "2020-07-28T03:29:59.351760Z"
 #         },
-#         format='json'
-#     )
-#     assert resp.status_code == status.HTTP_204_NO_CONTENT
+#         format='json',)
+#     return resp
+
+
+# def test_delete_touristpot(delete_touristpot):
+#     assert delete_touristpot.status_code == status.HTTP_204_NO_CONTENT
