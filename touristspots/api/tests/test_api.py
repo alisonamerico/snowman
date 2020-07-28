@@ -116,27 +116,27 @@ def test_update_touristpot(update_touristpot, touristpot):
     assert update_touristpot.status_code == status.HTTP_200_OK
 
 
-# @pytest.fixture
-# def delete_touristpot(api_client, touristpot):
-#     resp = api_client.delete(
-#         f'/api/v1/touristspots/{touristpot.id}/',
-#         data={
-#             "id": 1,
-#             "name": "Parque Santos Dumont",
-#             "geographical_location": {
-#                     "type": "Point",
-#                     "coordinates": [
-#                         -34.9040816111268,
-#                         -8.141266676521594
-#                     ]
-#             },
-#             "category": "PARK",
-#             "created": "2020-07-28T03:00:05.794300Z",
-#             "modified": "2020-07-28T03:29:59.351760Z"
-#         },
-#         format='json',)
-#     return resp
+@pytest.fixture
+def delete_touristpot(api_client, touristpot):
+    resp = api_client.delete(
+        f'/api/v1/touristspots/{touristpot.id}/',
+        data={
+            "id": 1,
+            "name": "Parque Santos Dumont",
+            "geographical_location": {
+                    "type": "Point",
+                    "coordinates": [
+                        -34.9040816111268,
+                        -8.141266676521594
+                    ]
+            },
+            "category": "PARK",
+            "created": "2020-07-28T03:00:05.794300Z",
+            "modified": "2020-07-28T03:29:59.351760Z"
+        },
+        format='json',)
+    return resp
 
 
-# def test_delete_touristpot(delete_touristpot):
-#     assert delete_touristpot.status_code == status.HTTP_204_NO_CONTENT
+def test_delete_touristpot(delete_touristpot):
+    assert delete_touristpot.status_code == status.HTTP_204_NO_CONTENT
