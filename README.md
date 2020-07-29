@@ -28,6 +28,12 @@ Continuous Delivery:
 Dependencies used in the project:
 
 ```toml
+[tool.poetry]
+name = "snowman"
+version = "0.1.0"
+description = ""
+authors = ["alisonamerico <alison.americo@gmail.com>"]
+
 [tool.poetry.dependencies]
 python = "^3.8"
 django = "^3.0.8"
@@ -37,11 +43,12 @@ dj-database-url = "^0.5.0"
 psycopg2-binary = "^2.8.5"
 dj-static = "^0.0.6"
 djangorestframework = "^3.11.0"
-djangorestframework-jwt = "^1.11.0"
 django-cors-headers = "^3.4.0"
 Pillow = "^7.2.0"
 djangorestframework-gis = "^0.15"
 django-filter = "^2.3.0"
+dj-rest-auth = "^1.1.0"
+django-allauth = "^0.42.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
