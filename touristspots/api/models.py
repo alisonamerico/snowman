@@ -10,6 +10,23 @@ Generally, each model maps to a single database table.
 """
 
 
+class Picture(models.Model):
+    """
+    This class contains the representation of the fields in the Picture table.
+    """
+    picture = models.ImageField(upload_to='pic_folder/')
+    tourist_spot = models.ForeignKey('TouristSpot', on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Picture'
+        verbose_name_plural = 'Pictures'
+
+    def __str__(self):
+        """A string representation of the model."""
+        return f'{self.picture}, {self.tourist_spot.name}, {self.user}'
+
+
 class TouristSpot(models.Model):
     """
     This class contains the representation of the fields in the TouristSpot table.
@@ -21,7 +38,7 @@ class TouristSpot(models.Model):
         ('MONUMENT', 'Monument'),
     ]
 
-    picture = models.ImageField(upload_to='pic_folder/', default='pic_folder/none/no-img.jpg')
+    pictures = models.ForeignKey('api.Picture', blank=True, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     geographical_location = models.PointField(geography=True, default=Point(0.0, 0.0))
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
@@ -36,7 +53,10 @@ class TouristSpot(models.Model):
 
     def __str__(self):
         """A string representation of the model."""
-        return self.name
+        return f'{self.name}'
+
+    def save(self, *args, **kwargs):
+        super(TouristSpot, self).save(*args, **kwargs)
 
 
 class Favorite(models.Model):
@@ -45,7 +65,7 @@ class Favorite(models.Model):
     Where a tourist spot may be a favorite of one or more tourists and a tourist
      may favor one or more tourist spots.
     """
-    tourist = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     tourist_spot = models.ForeignKey('TouristSpot', on_delete=models.CASCADE)
 
     class Meta:
@@ -55,4 +75,4 @@ class Favorite(models.Model):
 
     def __str__(self):
         """A string representation of the model."""
-        return str(self.tourist_spot)
+        return f'{self.tourist_spot}, {self.user}'

@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.authtoken.views import obtain_auth_token
+from django.conf.urls.static import static
+from django.conf import settings
 
 from touristspots.api.views import FacebookLogin
 
@@ -32,3 +34,6 @@ urlpatterns = [
     path('api/v1/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     path('api/v1/dj-rest-auth/facebook/', FacebookLogin.as_view(), name='fb_login')
 ]
+
+if settings.DEBUG:  # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

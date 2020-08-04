@@ -68,15 +68,15 @@ def test_create_touristpot(api_client):
     resp = api_client.post(
         '/api/v1/touristspots/',
         data={
-            "name": "Walmart Avenida Recife",
+            "name": "Museu do Teste",
             "geographical_location": {
                 "type": "Point",
                 "coordinates": [
-                    -3888297.88354,
-                    -904454.87184
+                    -34.88358735552661,
+                    -8.067472892722346
                 ]
             },
-            "category": "PARK"
+            "category": "MUSEUM"
         },
         format='json'
     )
@@ -84,7 +84,7 @@ def test_create_touristpot(api_client):
 
 
 @pytest.fixture
-def touristpot(db):
+def touristpot():
     api_touristspot = TouristSpot.objects.create()
     return api_touristspot
 
@@ -95,17 +95,17 @@ def update_touristpot(api_client, touristpot):
         f'/api/v1/touristspots/{touristpot.id}/',
         data={
             "id": 1,
-            "name": "Parque Santos Dumont",
+            "name": "Museu do Teste2",
             "geographical_location": {
-                    "type": "Point",
-                    "coordinates": [
-                        -34.9040816111268,
-                        -8.141266676521594
-                    ]
+                "type": "Point",
+                "coordinates": [
+                    -34.88358735552661,
+                    -8.067472892722346
+                ]
             },
-            "category": "PARK",
-            "created": "2020-07-28T03:00:05.794300Z",
-            "modified": "2020-07-28T03:29:59.351760Z"
+            "category": "MUSEUM",
+            "created": "2020-08-06T23:57:56.733523Z",
+            "modified": "2020-08-07T01:19:37.381841Z"
         },
         format='json',)
     return resp
@@ -122,17 +122,17 @@ def delete_touristpot(api_client, touristpot):
         f'/api/v1/touristspots/{touristpot.id}/',
         data={
             "id": 1,
-            "name": "Parque Santos Dumont",
+            "name": "Museu do Teste2",
             "geographical_location": {
-                    "type": "Point",
-                    "coordinates": [
-                        -34.9040816111268,
-                        -8.141266676521594
-                    ]
+                "type": "Point",
+                "coordinates": [
+                    -34.88358735552661,
+                    -8.067472892722346
+                ]
             },
-            "category": "PARK",
-            "created": "2020-07-28T03:00:05.794300Z",
-            "modified": "2020-07-28T03:29:59.351760Z"
+            "category": "MUSEUM",
+            "created": "2020-08-06T23:57:56.733523Z",
+            "modified": "2020-08-07T01:19:37.381841Z"
         },
         format='json',)
     return resp

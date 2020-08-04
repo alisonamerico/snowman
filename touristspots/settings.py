@@ -113,7 +113,7 @@ CORS_ORIGIN_WHITELIST = [
 # CONFIGURATION REST_FRAMEWORK
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
     ],
     'TEST_REQUEST_RENDERER_CLASSES': [
         'rest_framework.renderers.MultiPartRenderer',

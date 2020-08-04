@@ -1,14 +1,28 @@
-from allauth.socialaccount.providers.facebook.views import FacebookOAuth2Adapter
+# from touristspots.api.permissions import IsAuthenticatedUserOwner
+from allauth.socialaccount.providers.facebook.views import \
+    FacebookOAuth2Adapter
 from dj_rest_auth.registration.views import SocialLoginView
-from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
-from rest_framework import filters
-
-from touristspots.api.models import Favorite, TouristSpot
-from touristspots.api.serializers import TouristSpotSerializer, FavoriteSerializer
-
-from django.contrib.gis.measure import Distance
 from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import Distance
+from rest_framework import filters, viewsets
+
+
+from touristspots.api.models import Favorite, TouristSpot, Picture
+from touristspots.api.serializers import (FavoriteSerializer,
+                                          TouristSpotSerializer, PictureSerializer)
+
+
+class PictureViewSet(viewsets.ModelViewSet):
+
+    serializer_class = PictureSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the picture
+        tourist spots for the currently authenticated user.
+        """
+        user = self.request.user
+        return Picture.objects.filter(user=user)
 
 
 class TouristSpotViewSet(viewsets.ModelViewSet):
@@ -22,7 +36,6 @@ class TouristSpotViewSet(viewsets.ModelViewSet):
 
     queryset = TouristSpot.objects.all()
     serializer_class = TouristSpotSerializer
-    permission_classes = (IsAuthenticated,)
     filter_backends = [filters.SearchFilter]
     search_fields = ['name']
 
@@ -46,10 +59,19 @@ class FavoriteViewSet(viewsets.ModelViewSet):
         - Authentication and permission for API access.
     """
 
-    queryset = Favorite.objects.all()
     serializer_class = FavoriteSerializer
-    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the favorite
+        tourist spots for the currently authenticated user.
+        """
+        user = self.request.user
+        return Favorite.objects.filter(user=user)
 
 
 class FacebookLogin(SocialLoginView):
+    """
+    Visualization for access with Facebook
+    """
     adapter_class = FacebookOAuth2Adapter
