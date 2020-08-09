@@ -9,6 +9,9 @@ from touristspots.api.models import TouristSpot
 
 @pytest.fixture
 def create_user(db):
+    """
+    This fixture is responsable for create user.
+    """
     email = 'foo@email.com'
     password = 'bar'
     user = get_user_model().objects.create_user(email=email, password=password)
