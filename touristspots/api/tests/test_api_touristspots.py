@@ -1,53 +1,10 @@
-import pytest
-from django.contrib.auth import get_user_model
-from django.urls import reverse
-from rest_framework import status
-from rest_framework.authtoken.models import Token
-from rest_framework.test import APIClient
+from touristspots.conftest import APIClient, pytest
 from touristspots.api.models import TouristSpot
-
-
-@pytest.fixture
-def create_user(db):
-    """
-    This fixture is responsable for create user.
-    """
-    email = 'foo@email.com'
-    password = 'bar'
-    user = get_user_model().objects.create_user(email=email, password=password)
-    return user
-
-
-@pytest.fixture
-def api_client(create_user):
-    token = Token.objects.create(user=create_user)
-    client = APIClient()
-    client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
-    return client
-
-
-def test_user_create(db):
-    get_user_model().objects.create_user('foo@email.com', 'bar')
-    assert get_user_model().objects.count() == 1
-
-
-def test_api_root_view_sucess_request(api_client):
-    resp = api_client.get(reverse('api:api-root'))
-    assert resp.status_code == status.HTTP_200_OK
-
-
-def test_api_root_content_view(api_client):
-    resp = api_client.get(reverse('api:api-root'))
-    assert resp.status_code == status.HTTP_200_OK
+from rest_framework import status
 
 
 def test_touristspots_view_authorized_request(api_client):
     resp = api_client.get('/api/v1/touristspots/')
-    assert resp.status_code == status.HTTP_200_OK
-
-
-def test_favorites_view_authorized_request(api_client):
-    resp = api_client.get('/api/v1/favorites/')
     assert resp.status_code == status.HTTP_200_OK
 
 
@@ -59,11 +16,6 @@ def api_client_unauthorized():
 
 def test_touristspots_view_unauthorized_request(api_client_unauthorized):
     resp = api_client_unauthorized.get('/api/v1/touristspots/')
-    assert resp.status_code == status.HTTP_401_UNAUTHORIZED
-
-
-def test_favorite_view_unauthorized_request(api_client_unauthorized):
-    resp = api_client_unauthorized.get('/api/v1/favorites/')
     assert resp.status_code == status.HTTP_401_UNAUTHORIZED
 
 
