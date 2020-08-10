@@ -1,8 +1,10 @@
 name: Django CI
 
 on:
-  [pull_request]
-    
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   build:
@@ -22,27 +24,31 @@ jobs:
         python-version: [3.8]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies Docker
-      run: |
-        sudo apt-get update
-        sudo apt-get -yqq install apt-utils binutils libgdal-dev gdal-bin libproj-dev gcc
-    - name: Copying configurations
-      run: |
-        cp contrib/env-sample .env
-    - name: Install Dependencies Project
-      run: |
-        python -m pip install --upgrade pip
-        pip install poetry
-        poetry install
-    - name: Lint with flake8
-      run: |
-        poetry run flake8 .
-    - name: Test with pytest
-      run: docker-compose run web pytest touristspots --cov=touristspots
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get -yqq install apt-utils binutils libgdal-dev gdal-bin libproj-dev gcc
+      - name: Copying configurations
+        run: |
+          cp contrib/env-sample .env
+      - name: Install Dependencies Project
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+      - name: Lint with flake8
+        run: |
+          poetry run flake8 .
+      - name: Test with pytest
+        run: |
+          docker-compose run web pytest --cov=touristspots
+      - name: Posting Coverage
+        env:
+          CODECOV_TOKEN: "122744c8-2a30-4eec-85ff-2780882aff05"
+        run: |
+          poetry run codecov
