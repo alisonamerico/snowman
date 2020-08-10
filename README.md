@@ -47,7 +47,7 @@ django-cors-headers = "^3.4.0"
 Pillow = "^7.2.0"
 djangorestframework-gis = "^0.15"
 django-filter = "^2.3.0"
-dj-rest-auth = "^1.1.0"
+dj-rest-auth = "^1.1.1"
 django-allauth = "^0.42.0"
 
 [tool.poetry.dev-dependencies]
@@ -153,6 +153,7 @@ API Root:
 ```console
 http://0.0.0.0:8000/api/v1/touristspots/
 http://0.0.0.0:8000/api/v1/favorites/
+http://0.0.0.0:8000/api/v1/pictures/
 ```
 
 ![content_example](readme-images/5_content_example.png)
@@ -175,51 +176,49 @@ Admin Touristspots Detail:
 ![admin_touristspots_detail](readme-images/8_admin_touristspots_detail.png)
 
 Admin Favorite
-![admin_favorite](readme-images/9_admin_favorite.png)
+![admin_favorite](readme-images/9_1_admin_favorite.png)
+
+Admin Picture
+![admin_favorite](readme-images/9_2_admin_picture.png)
 
 Example of json created:
 
 ```json
 {
-  "count": 3,
+  "count": 1,
   "next": null,
   "previous": null,
   "results": [
     {
-      "id": 3,
-      "picture": "http://0.0.0.0:8000/media/pic_folder/parque-dona-lindu.jpeg",
+      "id": 1,
       "name": "Parque Dona Lindu",
       "geographical_location": {
         "type": "Point",
-        "coordinates": [-34.9040816111268, -8.141266676521594]
+        "coordinates": [-34.90402578821604, -8.14141043176408]
       },
       "category": "PARK",
-      "created": "2020-07-26T13:47:28.802659Z",
-      "modified": "2020-07-26T13:47:28.802749Z"
-    },
-    {
-      "id": 2,
-      "picture": "http://0.0.0.0:8000/media/pic_folder/teatro-santa-isabel.jpeg",
-      "name": "Teatro Santa Isabel - Recife",
-      "geographical_location": {
-        "type": "Point",
-        "coordinates": [-34.878362412362975, -8.060722137203351]
-      },
-      "category": "THEATER",
-      "created": "2020-07-26T02:55:29.902770Z",
-      "modified": "2020-07-26T13:49:09.173864Z"
-    },
-    {
-      "id": 1,
-      "picture": "http://0.0.0.0:8000/media/pic_folder/museu-cais-do-sertao.jpeg",
-      "name": "Museu Cais do Sertão - Recife Antigo",
-      "geographical_location": {
-        "type": "Point",
-        "coordinates": [-34.87008511534667, -8.060716825786317]
-      },
-      "category": "MUSEUM",
-      "created": "2020-07-24T20:17:07.721895Z",
-      "modified": "2020-07-26T13:49:29.112867Z"
+      "pictures": [
+        {
+          "id": 3,
+          "picture": "http://0.0.0.0:8000/media/pic_folder/parque-dona-lindu.jpeg",
+          "tourist_spot": "Parque Dona Lindu",
+          "user": "Zezinho"
+        },
+        {
+          "id": 4,
+          "picture": "http://0.0.0.0:8000/media/pic_folder/recife-antigo.jpeg",
+          "tourist_spot": "Parque Dona Lindu",
+          "user": "Zezinho"
+        },
+        {
+          "id": 5,
+          "picture": "http://0.0.0.0:8000/media/pic_folder/museu-cais-do-sertao.jpeg",
+          "tourist_spot": "Parque Dona Lindu",
+          "user": "Zezinho"
+        }
+      ],
+      "created": "2020-08-09T02:49:48.523116Z",
+      "modified": "2020-08-09T14:28:59.968699Z"
     }
   ]
 }
