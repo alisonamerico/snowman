@@ -31,8 +31,9 @@ django-filter==2.3.0 \
 djangorestframework==3.11.1 \
     --hash=sha256:8b1ac62c581dbc5799b03e535854b92fc4053ecfe74bad3f9c05782063d4196b \
     --hash=sha256:6dd02d5a4bd2516fb93f80360673bf540c3b6641fec8766b1da2870a5aa00b32
-djangorestframework-gis==0.15 \
-    --hash=sha256:63c253528a107bc77cd71506cd639a0489b05b763fa7c3190cfd4622bf094594
+djangorestframework-gis==0.16 \
+    --hash=sha256:19a873740bcdac5c963779a1755d0d4acf96c4f5b63915d452f4b866d50f77d7 \
+    --hash=sha256:1a19c9e103b3c34ed5db182cdfbc541905c5560fc4a80f86c8b976c79bdf1e6d
 gunicorn==20.0.4 \
     --hash=sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c \
     --hash=sha256:1904bb2b8a43658807108d59c3f3d56c2b6121a701161de0ddf9ad140073c626
