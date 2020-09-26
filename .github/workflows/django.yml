@@ -1,6 +1,12 @@
 name: Django CI
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
 
 jobs:
   build:
@@ -42,9 +48,9 @@ jobs:
           poetry run flake8 .
       - name: Test with pytest
         run: |
-          docker-compose run web pytest --cov=touristspots --cov-report=xml
+          poetry run pytest --cov=touristspots --cov-report=xml
       - name: Codecov
-        uses: codecov/codecov-action@v1.0.12
+        uses: codecov/codecov-action@v1.0.13
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          # token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
