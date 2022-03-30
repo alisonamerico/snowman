@@ -13,8 +13,8 @@ defusedxml==0.6.0 \
 dj-database-url==0.5.0 \
     --hash=sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163 \
     --hash=sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9
-dj-rest-auth==1.1.1 \
-    --hash=sha256:96bb0c13d36747b02104e06cc8cd7214398c325a633b2cb102f00bf946208dd1
+dj-rest-auth==2.2.4 \
+    --hash=sha256:cf15155756b60a02842c54af62a213975c4eed250a2cce5d31b80dc6cf8592f1
 dj-static==0.0.6 \
     --hash=sha256:032ec1c532617922e6e3e956d504a6fb1acce4fc1c7c94612d0fda21828ce8ef
 django==3.1 \
